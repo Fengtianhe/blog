@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://fengtianhe.cn/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://fengtianhe.cn">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://fengtianhe.cn">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//fengtianhe-blog.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//fengtianhe-blog.disqus.com">
+
+
+<link rel="prerender" href="http://fengtianhe.cn">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://fengtianhe.cn">
+<meta name="author" content="冯天鹤">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>let&#39;s encrypt，免费好用的 https 证书 - 冯天鹤&#39;s Blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="技术博客, 记录成长">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4443191639930926",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="记">记</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/links" title="友链">
+            <i class="fa fa-links"></i>
+            <span>友链</span>
+        </a>
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">爬坑笔记</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个程序员一步一步爬坑的过程</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/Fengtianhe" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/fe" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/wxminiprogram" data-name="小程序">小程序</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/rd" data-name="后端">后端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/db" data-name="数据库">数据库</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server" data-name="服务器">服务器</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="http://fengtianhe.cn"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="http://fengtianhe.cn"
+                       target="_blank">冯天鹤</a>
+                    <span title="最后编辑于&nbsp;2018-05-22">2018-05-22</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">Let's Encrypt，免费好用的 HTTPS 证书</h2>
+            <div class="post-meta">
+                本文共计3649个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <blockquote>
+<p>  本文转自<a href="https://imququ.com/post/letsencrypt-certificate.html">Jerry Qu 的 Let’s Encrypt，免费好用的 HTTPS 证书</a>。如果需要查看评论和解决方案，请点击</p>
+</blockquote>
+<h2 id="1-创建账号"><a href="#1-创建账号" class="headerlink" title="1.创建账号"></a>1.创建账号</h2><p>首先创建一个目录，例如 <code>ssl</code>，用来存放各种临时文件和最后的证书文件。进入这个目录，创建一个 RSA 私钥用于 Let’s Encrypt 识别你的身份：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa <span class="number">4096</span> &gt; account.<span class="type">key</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-创建-CSR-文件"><a href="#2-创建-CSR-文件" class="headerlink" title="2.创建 CSR 文件"></a>2.创建 CSR 文件</h2><p>接着就可以生成 CSR（Certificate Signing Request，证书签名请求）文件了。在这之前，还需要创建域名私钥（一定不要使用上面的账户私钥），根据证书不同类型，域名私钥也可以选择 RSA 和 ECC 两种不同类型。以下两种方式请根据实际情况二选一。<br>1）创建 RSA 私钥（兼容性好）：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa <span class="number">4096</span> &gt; domain.<span class="type">key</span></span><br></pre></td></tr></table></figure>
+<p>2）创建 ECC 私钥（部分老旧操作系统、浏览器不支持。优点是证书体积小）：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#secp256r1</span></span><br><span class="line">openssl ecparam -genkey -name secp256r1 <span class="string">| openssl ec -out domain.key</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#secp384r1</span></span><br><span class="line">openssl ecparam -genkey -name secp384r1 <span class="string">| openssl ec -out domain.key</span></span><br></pre></td></tr></table></figure>
+<p>有关 ECC 证书的更多介绍，请<a href="https://imququ.com/post/optimize-tls-handshake.html#toc-2-1">点击这里</a>。</p>
+<p>有了私钥文件，就可以生成 CSR 文件了。在 CSR 中推荐至少把域名带 www 和不带 www 的两种情况都加进去，其它子域可以根据需要添加（目前一张证书最多可以包含 100 个域名）：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -<span class="built_in">new</span> -sha256 -<span class="built_in">key</span> <span class="built_in">domain</span>.<span class="built_in">key</span> -subj <span class="string">"/"</span> -reqexts SAN -config &lt;(cat /etc/ssl/openssl.cnf &lt;(<span class="built_in">printf</span> <span class="string">"[SAN]\nsubjectAltName=DNS:yoursite.com,DNS:www.yoursite.com"</span>)) &gt; <span class="built_in">domain</span>.csr</span><br></pre></td></tr></table></figure>
+<p>执行这一步时，如果提示找不到 /etc/ssl/openssl.cnf 文件，请看看 /usr/local/openssl/ssl/openssl.cnf 是否存在。如果还是不行，也可以使用交互方式创建 CSR（需要注意 Common Name 必须为你的域名）：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -<span class="built_in">new</span> -sha256 -<span class="built_in">key</span> <span class="built_in">domain</span>.<span class="built_in">key</span> -out <span class="built_in">domain</span>.csr</span><br></pre></td></tr></table></figure>
+<h2 id="3-配置验证服务"><a href="#3-配置验证服务" class="headerlink" title="3.配置验证服务"></a>3.配置验证服务</h2><p>我们知道，CA 在签发 DV（Domain Validation）证书时，需要验证域名所有权。传统 CA 的验证方式一般是往 <a href="mailto:`admin@yoursite.com">`admin@yoursite.com</a>` 发验证邮件，而 Let’s Encrypt 是在你的服务器上生成一个随机验证文件，再通过创建 CSR 时指定的域名访问，如果可以访问则表明你对这个域名有控制权。</p>
+<p>首先创建用于存放验证文件的目录，例如：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/www/challenges/</span><br></pre></td></tr></table></figure>
+<p>然后配置一个 HTTP 服务，以 Nginx 为例：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">server_name</span> www.yoursite.com yoursite.com;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span><span class="regexp"> ^~</span> /.well-known/acme-challenge/ &#123;</span><br><span class="line">        <span class="attribute">alias</span> /home/xxx/www/challenges/;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> =<span class="number">404</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> https://yoursite.com/<span class="variable">$1</span> <span class="literal">permanent</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上配置优先查找 ~/www/challenges/ 目录下的文件，如果找不到就重定向到 HTTPS 地址。这个验证服务以后更新证书还要用到，建议一直保留。</p>
+<h2 id="4-获取网站证书"><a href="#4-获取网站证书" class="headerlink" title="4.获取网站证书"></a>4.获取网站证书</h2><p>先把 acme-tiny 脚本保存到之前的 ssl 目录：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/diafygi/</span>acme-tiny<span class="regexp">/master/</span>acme_tiny.py</span><br></pre></td></tr></table></figure></p>
+<p>指定账户私钥、CSR 以及验证目录，执行脚本：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python acme_tiny.py <span class="params">--account-key</span> <span class="string">./account.key</span> <span class="params">--csr</span> <span class="string">./domain.csr</span> <span class="params">--acme-dir</span> ~<span class="string">/www/challenges/</span> &gt; <span class="string">./signed.crt</span></span><br></pre></td></tr></table></figure></p>
+<p>如果一切正常，当前目录下就会生成一个 signed.crt，这就是申请好的证书文件。</p>
+<p>如果你把域名 DNS 解析放在国内，这一步很可能会遇到类似这样的错误：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ValueError: Wrote <span class="keyword">file</span> to <span class="regexp">/home/</span>xxx<span class="regexp">/www/</span>challenges<span class="regexp">/oJbvpIhkwkBGBAQUklWJXyC8VbWAdQqlgpwUJkgC1Vg, but couldn't download http:/</span><span class="regexp">/www.yoursite.com/</span>.well-known<span class="regexp">/acme-challenge/</span>oJbvpIhkwkBGBAQUklWJXyC8VbWAdQqlgpwUJkgC1Vg</span><br></pre></td></tr></table></figure></p>
+<p>这是因为你的域名很可能在国外无法解析，可以找台国外 VPS 验证下。我的域名最近从 DNSPod 换到了阿里云解析，最后又换到了 CloudXNS，就是因为最近前两家在国外都很不稳定。如果你也遇到了类似情况，可以暂时使用国外的 DNS 解析服务商，例如 dns.he.net。如果还是搞不定，也可以试试「Neilpang/le」这个工具的 DNS Mode。</p>
+<p>搞定网站证书后，还要下载 Let’s Encrypt 的中间证书。我在之前的文章中讲过，配置 HTTPS 证书时既不要漏掉中间证书，也不要包含根证书。在 Nginx 配置中，需要把中间证书和网站证书合在一起：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https:<span class="comment">//letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem &gt; intermediate.pem</span></span><br><span class="line">cat signed<span class="selector-class">.crt</span> intermediate<span class="selector-class">.pem</span> &gt; chained.pem</span><br></pre></td></tr></table></figure></p>
+<p>为了后续能顺利启用 OCSP Stapling，我们再把根证书和中间证书合在一起：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https:<span class="comment">//letsencrypt.org/certs/isrgrootx1.pem &gt; root.pem</span></span><br><span class="line">cat intermediate<span class="selector-class">.pem</span> root<span class="selector-class">.pem</span> &gt; full_chained.pem</span><br></pre></td></tr></table></figure></p>
+<p>最终，修改 Nginx 中有关证书的配置并 reload 服务即可：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssl_certificate     ~<span class="regexp">/www/ssl</span><span class="regexp">/chained.pem;</span></span><br><span class="line"><span class="regexp">ssl_certificate_key ~/www</span><span class="regexp">/ssl/domain</span>.key;</span><br></pre></td></tr></table></figure></p>
+<p>Nginx 中与 HTTPS 有关的配置项很多，这里不一一列举了。如有需要，请<a href="https://imququ.com/post/my-nginx-conf.html">参考本站配置</a></p>
+<h2 id="5-配置自动更新"><a href="#5-配置自动更新" class="headerlink" title="5.配置自动更新"></a>5.配置自动更新</h2><p>Let’s Encrypt 签发的证书只有 90 天有效期，推荐使用脚本定期更新。例如我就创建了一个 renew_cert.sh 并通过 chmod a+x renew_cert.sh 赋予执行权限。文件内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/xxx/www/ssl/</span><br><span class="line">python acme_tiny.py --account-key account.key --csr domain.csr --acme-dir /home/xxx/www/challenges/ &gt; signed.crt || <span class="built_in">exit</span></span><br><span class="line">wget -O - https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem &gt; intermediate.pem</span><br><span class="line">cat signed.crt intermediate.pem &gt; chained.pem</span><br><span class="line">service nginx reload</span><br></pre></td></tr></table></figure>
+<p>crontab 中使用绝对路径比较保险，crontab -e 加入以下内容：<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">1</span> * * /home/xxx/<span class="keyword">shell</span>/renew_cert.sh &gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>这样以后证书每个月都会自动更新，一劳永逸。实际上，Let’s Encrypt 官方将证书有效期定为 90 天一方面是为了更安全，更重要的是鼓励用户采用自动化部署方案。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/服务器/">服务器</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://fengtianhe.cn/服务器配置--免费好用的HTTPS/';
+                this.page.identifier = '服务器配置--免费好用的HTTPS/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="http://fengtianhe.cn" target="_blank" rel="friend">冯天鹤</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

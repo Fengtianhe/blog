@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://fengtianhe.cn/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://fengtianhe.cn">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://fengtianhe.cn">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//fengtianhe-blog.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//fengtianhe-blog.disqus.com">
+
+
+<link rel="prerender" href="http://fengtianhe.cn">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://fengtianhe.cn">
+<meta name="author" content="冯天鹤">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>小程序-贝塞尔曲线加入购物车动效 - 冯天鹤&#39;s Blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="技术博客, 记录成长">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4443191639930926",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="记">记</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/links" title="友链">
+            <i class="fa fa-links"></i>
+            <span>友链</span>
+        </a>
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">爬坑笔记</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个程序员一步一步爬坑的过程</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/Fengtianhe" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/fe" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/wxminiprogram" data-name="小程序">小程序</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/rd" data-name="后端">后端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/db" data-name="数据库">数据库</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server" data-name="服务器">服务器</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="http://fengtianhe.cn"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="http://fengtianhe.cn"
+                       target="_blank">冯天鹤</a>
+                    <span title="最后编辑于&nbsp;2019-07-13">2019-07-13</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">小程序-贝塞尔曲线加入购物车动效</h2>
+            <div class="post-meta">
+                本文共计3678个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>首先上个效果图<br><img src="/images/wx-miniprogram-bezier.gif" alt="JAVA相关环境变量"></p>
+<p>在工具目录下创建算法文件 /utils/bezier.js</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 贝塞尔曲线</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> sx 起始点x坐标</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> sy 起始点y坐标</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> cx 控制点x坐标</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> cy 控制点y坐标</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> ex 结束点x坐标</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> ey 结束点y坐标</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> part 将起始点到控制点的线段分成的份数，数值越高，计算出的曲线越精确</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> 贝塞尔曲线坐标</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  bezier: <span class="function"><span class="keyword">function</span> <span class="params">(points, part)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sx = points[<span class="number">0</span>][<span class="string">'x'</span>];</span><br><span class="line">    <span class="keyword">let</span> sy = points[<span class="number">0</span>][<span class="string">'y'</span>];</span><br><span class="line">    <span class="keyword">let</span> cx = points[<span class="number">1</span>][<span class="string">'x'</span>];</span><br><span class="line">    <span class="keyword">let</span> cy = points[<span class="number">1</span>][<span class="string">'y'</span>];</span><br><span class="line">    <span class="keyword">let</span> ex = points[<span class="number">2</span>][<span class="string">'x'</span>];</span><br><span class="line">    <span class="keyword">let</span> ey = points[<span class="number">2</span>][<span class="string">'y'</span>];</span><br><span class="line">    <span class="keyword">var</span> bezier_points = [];</span><br><span class="line">    <span class="comment">// 起始点到控制点的x和y每次的增量</span></span><br><span class="line">    <span class="keyword">var</span> changeX1 = (cx - sx) / part;</span><br><span class="line">    <span class="keyword">var</span> changeY1 = (cy - sy) / part;</span><br><span class="line">    <span class="comment">// 控制点到结束点的x和y每次的增量</span></span><br><span class="line">    <span class="keyword">var</span> changeX2 = (ex - cx) / part;</span><br><span class="line">    <span class="keyword">var</span> changeY2 = (ey - cy) / part;</span><br><span class="line">    <span class="comment">//循环计算</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= part; i++) &#123;</span><br><span class="line">      <span class="comment">// 计算两个动点的坐标</span></span><br><span class="line">      <span class="keyword">var</span> qx1 = sx + changeX1 * i;</span><br><span class="line">      <span class="keyword">var</span> qy1 = sy + changeY1 * i;</span><br><span class="line">      <span class="keyword">var</span> qx2 = cx + changeX2 * i;</span><br><span class="line">      <span class="keyword">var</span> qy2 = cy + changeY2 * i;</span><br><span class="line">      <span class="comment">// 计算得到此时的一个贝塞尔曲线上的点</span></span><br><span class="line">      <span class="keyword">var</span> lastX = qx1 + (qx2 - qx1) * i / part;</span><br><span class="line">      <span class="keyword">var</span> lastY = qy1 + (qy2 - qy1) * i / part;</span><br><span class="line">      <span class="comment">// 保存点坐标</span></span><br><span class="line">      <span class="keyword">var</span> point = &#123;&#125;;</span><br><span class="line">      point[<span class="string">'x'</span>] = lastX;</span><br><span class="line">      point[<span class="string">'y'</span>] = lastY;</span><br><span class="line">      bezier_points.push(point);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//console.log(bezier_points)</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="string">'bezier_points'</span>: bezier_points</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用的页面中 定义 小圆点<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 加入购物车动态小图标 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"good_box"</span> <span class="attr">hidden</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;hide_good_box&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>  <span class="attr">style</span>=<span class="string">"left: </span></span></span><span class="template-variable">&#123;&#123;bus_x&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">px; top: </span></span></span><span class="template-variable">&#123;&#123;bus_y&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">.good_box &#123;</span></span><br><span class="line"><span class="xml">width: 30rpx;</span></span><br><span class="line"><span class="xml">height: 30rpx;</span></span><br><span class="line"><span class="xml">position: fixed;</span></span><br><span class="line"><span class="xml">border-radius: 50%;</span></span><br><span class="line"><span class="xml">overflow: hidden;</span></span><br><span class="line"><span class="xml">left: 50%;</span></span><br><span class="line"><span class="xml">top: 50%;</span></span><br><span class="line"><span class="xml">z-index: 99;</span></span><br><span class="line"><span class="xml">background: #b02c41;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>在js文件中定义data<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hide_good_box:</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line"><span class="attr">bus_x:</span> <span class="number">0</span><span class="string">,</span></span><br><span class="line"><span class="attr">bus_y:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>点击事件  bindtap 执行 touchOnGoods 就可以<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">touchOnGoods: function(e) &#123;</span><br><span class="line">    <span class="comment">// 如果good_box正在运动</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.<span class="keyword">data</span>.hide_good_box) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.finger = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 运动的终点位置</span></span><br><span class="line">    <span class="keyword">this</span>.busPos = &#123;</span><br><span class="line">      x: <span class="number">337</span>,</span><br><span class="line">      y: <span class="number">527</span></span><br><span class="line">    &#125;;</span><br><span class="line">    let topPoint = &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.finger[<span class="string">'x'</span>] = e.touches[<span class="string">"0"</span>].clientX;</span><br><span class="line">    <span class="keyword">this</span>.finger[<span class="string">'y'</span>] = e.touches[<span class="string">"0"</span>].clientY;</span><br><span class="line">    console.log(<span class="string">'finger =&gt; '</span>, <span class="keyword">this</span>.finger)</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.finger[<span class="string">'y'</span>] &lt; <span class="keyword">this</span>.busPos[<span class="string">'y'</span>]) &#123;</span><br><span class="line">      topPoint[<span class="string">'y'</span>] = <span class="keyword">this</span>.finger[<span class="string">'y'</span>] - <span class="number">150</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      topPoint[<span class="string">'y'</span>] = <span class="keyword">this</span>.busPos[<span class="string">'y'</span>] - <span class="number">150</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    topPoint[<span class="string">'x'</span>] = Math.abs(<span class="keyword">this</span>.finger[<span class="string">'x'</span>] - <span class="keyword">this</span>.busPos[<span class="string">'x'</span>]) / <span class="number">2</span>;</span><br><span class="line">    console.log(<span class="string">'top point =&gt; '</span>, topPoint)</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.finger[<span class="string">'x'</span>] &gt; <span class="keyword">this</span>.busPos[<span class="string">'x'</span>]) &#123;</span><br><span class="line">      topPoint[<span class="string">'x'</span>] = (<span class="keyword">this</span>.finger[<span class="string">'x'</span>] - <span class="keyword">this</span>.busPos[<span class="string">'x'</span>]) / <span class="number">2</span> + <span class="keyword">this</span>.busPos[<span class="string">'x'</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      topPoint[<span class="string">'x'</span>] = (<span class="keyword">this</span>.busPos[<span class="string">'x'</span>] - <span class="keyword">this</span>.finger[<span class="string">'x'</span>]) / <span class="number">2</span> + <span class="keyword">this</span>.finger[<span class="string">'x'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(<span class="string">'bus point =&gt; '</span>, <span class="keyword">this</span>.busPos)</span><br><span class="line">    <span class="keyword">this</span>.linePos = bezier.bezier([<span class="keyword">this</span>.finger, topPoint, <span class="keyword">this</span>.busPos], <span class="number">20</span>);</span><br><span class="line">    <span class="keyword">this</span>.startAnimation();</span><br><span class="line">  &#125;,</span><br><span class="line">  startAnimation: function() &#123;</span><br><span class="line">    <span class="keyword">var</span> index = <span class="number">0</span>,</span><br><span class="line">      that = <span class="keyword">this</span>,</span><br><span class="line">      bezier_points = that.linePos[<span class="string">'bezier_points'</span>],</span><br><span class="line">      len = bezier_points.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      hide_good_box: <span class="literal">false</span>,</span><br><span class="line">      bus_x: that.finger[<span class="string">'x'</span>],</span><br><span class="line">      bus_y: that.finger[<span class="string">'y'</span>]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.timer = setInterval(function() &#123;</span><br><span class="line">      index++;</span><br><span class="line">      that.setData(&#123;</span><br><span class="line">        bus_x: bezier_points[index][<span class="string">'x'</span>],</span><br><span class="line">        bus_y: bezier_points[index][<span class="string">'y'</span>]</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span> (index &gt;= len) &#123;</span><br><span class="line">        clearInterval(that.timer);</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">          hide_good_box: <span class="literal">true</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">20</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后记得在<code>onHide</code>中销毁定时器<code>this.timer</code></p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/小程序/">小程序</a>
+            
+            <a href="/tags/特效/">特效</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://fengtianhe.cn/小程序-贝塞尔曲线加入购物车动效/';
+                this.page.identifier = '小程序-贝塞尔曲线加入购物车动效/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="http://fengtianhe.cn" target="_blank" rel="friend">冯天鹤</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

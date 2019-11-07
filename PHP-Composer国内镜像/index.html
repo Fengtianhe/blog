@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://fengtianhe.cn/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://fengtianhe.cn">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://fengtianhe.cn">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//fengtianhe-blog.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//fengtianhe-blog.disqus.com">
+
+
+<link rel="prerender" href="http://fengtianhe.cn">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://fengtianhe.cn">
+<meta name="author" content="冯天鹤">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>php-composer国内镜像 - 冯天鹤&#39;s Blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="技术博客, 记录成长">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4443191639930926",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="记">记</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/links" title="友链">
+            <i class="fa fa-links"></i>
+            <span>友链</span>
+        </a>
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">爬坑笔记</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个程序员一步一步爬坑的过程</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/Fengtianhe" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/fe" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/wxminiprogram" data-name="小程序">小程序</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/rd" data-name="后端">后端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/db" data-name="数据库">数据库</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server" data-name="服务器">服务器</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="http://fengtianhe.cn"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="http://fengtianhe.cn"
+                       target="_blank">冯天鹤</a>
+                    <span title="最后编辑于&nbsp;2019-08-14">2019-08-14</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">PHP-Composer国内镜像</h2>
+            <div class="post-meta">
+                本文共计1120个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h3 id="加速原理"><a href="#加速原理" class="headerlink" title="加速原理"></a>加速原理</h3><hr>
+<p>Composer 安装时候会向国外的 Packagist 服务器发送请求，因为众所周知的原因，国内请求国外服务器，有时会出现不稳定甚至不可用的情况。</p>
+<p>镜像加速就是把国外的数据缓存到国内的服务器上，Composer 客户端只需配置服务器为国内的服务器，即可从国内服务器上下载，稳定性会有很高的提升。</p>
+<h3 id="要点一：全量与非全量镜像"><a href="#要点一：全量与非全量镜像" class="headerlink" title="要点一：全量与非全量镜像"></a>要点一：全量与非全量镜像</h3><hr>
+<p>Composer 安装扩展包的时候，一般会发起两种请求：</p>
+<p>JSON 请求 —— 扩展包元信息，包括 zip 包的下载链接；<br>Zip 包请求 —— 扩展包源码压缩包。<br>全量镜像指的是以上两种请求都使用国内服务器加速。而非全量服务器一般只缓存 JSON 数据。</p>
+<h3 id="要点二、更新时间"><a href="#要点二、更新时间" class="headerlink" title="要点二、更新时间"></a>要点二、更新时间</h3><hr>
+<p>当一个 PHP 扩展包从 GitHub 上发布新版本的时候，Packagist.org 上会接收到回调并记录新版本的信息。与 GitHub 的回调相比，国内镜像只能通过主动请求 Packagist.org 的方式来获取更新的扩展包版本。</p>
+<p>更新时间指的是国内镜像服务器更新请求的频率，意味着当你在 GitHub 上发布了新版本，此新版本需要多长时间才能在国内的镜像服务器上出现。</p>
+<p>故更新时间越短越好。</p>
+<h3 id="阿里云-Composer-全量镜像（推荐）"><a href="#阿里云-Composer-全量镜像（推荐）" class="headerlink" title="阿里云 Composer 全量镜像（推荐）"></a>阿里云 Composer 全量镜像（推荐）</h3><hr>
+<p>镜像类型：全量镜像<br>更新时间：1 分钟<br>镜像地址：<a href="https://mirrors.aliyun.com/composer/">https://mirrors.aliyun.com/composer/</a><br>官方地址：<a href="https://developer.aliyun.com/composer">https://developer.aliyun.com/composer</a><br>镜像说明：阿里云 CDN 加速，更新速度快，推荐使用</p>
+<h3 id="安畅网络镜像"><a href="#安畅网络镜像" class="headerlink" title="安畅网络镜像"></a>安畅网络镜像</h3><hr>
+<p>镜像类型：全量镜像<br>更新时间：1 分钟<br>镜像地址：<a href="https://php.cnpkg.org">https://php.cnpkg.org</a><br>官方地址：<a href="https://php.cnpkg.org/">https://php.cnpkg.org/</a><br>镜像说明：此 Composer 镜像由安畅网络赞助，目前支持元数据、下载包全量代理。</p>
+<h3 id="交通大学镜像"><a href="#交通大学镜像" class="headerlink" title="交通大学镜像"></a>交通大学镜像</h3><hr>
+<p>镜像类型：非全量镜像<br>镜像地址：<a href="https://packagist.mirrors.sjtug.sjtu.edu.c...\">https://packagist.mirrors.sjtug.sjtu.edu.c...\</a><br>官方地址：<a href="https://mirrors.sjtug.sjtu.edu.cn/packagis...\">https://mirrors.sjtug.sjtu.edu.cn/packagis...\</a><br>镜像说明：上海交通大学提供的 composer 镜像，稳定、快速、现代的镜像服务，推荐使用。</p>
+<h3 id="Laravel-China-镜像（deprecated）"><a href="#Laravel-China-镜像（deprecated）" class="headerlink" title="Laravel China 镜像（deprecated）"></a>Laravel China 镜像（deprecated）</h3><hr>
+<p>镜像类型：全量镜像<br>更新时间：10 分钟<br>镜像地址：<a href="https://packagist.laravel-china.org">https://packagist.laravel-china.org</a><br>官方地址：镜像详情<br>镜像说明：Laravel China 社区镜像，将于 2019 年 9 月 4 号停用。详见：博客：Laravel China 镜像完成历史使命，将于两个月后停用</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/PHP/">PHP</a>
+            
+            <a href="/tags/Composer/">Composer</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://fengtianhe.cn/PHP-Composer国内镜像/';
+                this.page.identifier = 'PHP-Composer国内镜像/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="http://fengtianhe.cn" target="_blank" rel="friend">冯天鹤</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

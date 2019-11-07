@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://fengtianhe.cn/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://fengtianhe.cn">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://fengtianhe.cn">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//fengtianhe-blog.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//fengtianhe-blog.disqus.com">
+
+
+<link rel="prerender" href="http://fengtianhe.cn">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://fengtianhe.cn">
+<meta name="author" content="冯天鹤">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>分析haproxy日志 - 冯天鹤&#39;s Blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="技术博客, 记录成长">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4443191639930926",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="记">记</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/links" title="友链">
+            <i class="fa fa-links"></i>
+            <span>友链</span>
+        </a>
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">爬坑笔记</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个程序员一步一步爬坑的过程</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/Fengtianhe" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/fe" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/wxminiprogram" data-name="小程序">小程序</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/rd" data-name="后端">后端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/db" data-name="数据库">数据库</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server" data-name="服务器">服务器</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="http://fengtianhe.cn"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="http://fengtianhe.cn"
+                       target="_blank">冯天鹤</a>
+                    <span title="最后编辑于&nbsp;2019-03-05">2019-03-05</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">分析Haproxy日志</h2>
+            <div class="post-meta">
+                本文共计2319个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <blockquote>
+<p>我使用的是Ubuntu机器</p>
+</blockquote>
+<h3 id="安装Elasticsearch"><a href="#安装Elasticsearch" class="headerlink" title="安装Elasticsearch"></a>安装Elasticsearch</h3><ul>
+<li>【可选】安装JDK <code>sudo apt install openjdk-8-jdk-headless</code>（如果本机有请跳过）（如果没有 使用java命令 ,系统会提示用什么命令安装）</li>
+</ul>
+<p><img src="/images/201903051953.jpg" alt="ubuntu 无 java 提示"></p>
+<ul>
+<li>在<a href="https://www.elastic.co/downloads/past-releases">elastic.co</a>上下载 Elasticsearch OSS 版本</li>
+<li><p>【可选】配置JAVA环境变量（如果本机有请跳过,就用jdk1.8 不要用其他版本）</p>
+<pre><code>命令一：which java
+
+命令二：ls -lrt /usr/bin/java
+
+命令三：ls -lrt /etc/alternatives/java
+
+最后将会得出这样的目录 /usr/lib/jvm/java-8-openjdk-amd64(每个人不一样，以实际情况为准)
+</code></pre></li>
+<li><p>【可选】配置环境变量，执行命令 vi /etc/profile；然后进入编辑模式，在文件的最后添加下面的配置</p>
+<pre><code>JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
+
+CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+
+PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+</code></pre></li>
+<li><p>执行命令 source /etc/profile 使用环境变量生效</p>
+</li>
+<li><p>在 usr 下创建 elasticsearch 目录 <code>sudo mkdir /usr/elasticsearch</code></p>
+</li>
+<li><p>tar -zxvf 下载下来的 elasticsearch-oss-x.x.x.tar.gz 放到 /usr/elasticsearch 下</p>
+</li>
+<li><p>【可选】创建ES用户和组（创建elsearch用户组及elsearch用户），因为使用root用户执行ES程序，将会出现错误；所以这里需要创建单独的用户去执行ES 文件；命令如下（如果存在普通用户就不用新建了）</p>
+<pre><code>命令一：groupadd elsearch
+
+命令二：useradd elsearch -g elsearch
+
+命令三：chown -R elsearch:elsearch /usr/elasticsearch  该命令是更改该文件夹下所属的用户组的权限
+</code></pre></li>
+<li><p>在<code>/usr/elasticsearch</code>中创建ES数据文件和日志文件</p>
+<pre><code>命令一：mkdir -p data (修改所属权限)
+
+命令二：mkdir -p logs (修改所属权限)
+</code></pre></li>
+<li><p>修改 <code>/usr/elasticsearch/config/elasticsearch.yml</code> 文件 （可以使用默认）</p>
+</li>
+<li><p>使用 <code>/usr/elasticsearch/bin/elasticsearch -d</code> 用后台启动</p>
+</li>
+<li><p>测试是否启动成功</p>
+</li>
+</ul>
+<p><img src="/images/201903060941.jpg" alt="测试elasticsearch是否启动成功"></p>
+<hr>
+<h3 id="安装Logstash"><a href="#安装Logstash" class="headerlink" title="安装Logstash"></a>安装Logstash</h3><blockquote>
+<p>Logstash是一个开源的服务器端数据处理管道，可以同时从多个数据源获取数据，并对其进行转换，然后将其发送到你最喜欢的“存储”。（当然，我们最喜欢的是Elasticsearch）</p>
+</blockquote>
+<p><img src="/images/201903060941.jpg" alt="logstash 工作原理"></p>
+<ul>
+<li><p>在<a href="https://www.elastic.co/downloads/past-releases">elastic.co</a>上下载 Logstash 并解压</p>
+</li>
+<li><p>配置logstash</p>
+</li>
+<li><p>在logstash下运行 <code>./bin/logstash -f 自定义配置文件路径</code> 启动logstash</p>
+</li>
+<li><p>tail 日志 显示Non-zero metrics in the last 30s字样就启动成功了</p>
+</li>
+</ul>
+<p>ps: 无知的我一直在tail 生成的日志，其实已经写进去了，只不过没有日志，可能修改日志级别就好了</p>
+<hr>
+<h3 id="安装Filebeat"><a href="#安装Filebeat" class="headerlink" title="安装Filebeat"></a>安装Filebeat</h3><ul>
+<li>在<a href="https://www.elastic.co/downloads/past-releases">elastic.co</a>上下载 Filebeat OSS 并解压</li>
+</ul>
+<p>（使用<code>getconf LONG_BIT</code>查看ubuntu位数）</p>
+<ul>
+<li><p>修改yml配置文件，将output转为logstash的。(如果配置文件看着乱，可以自己再写一个 filebeat -e -c 配置文件路径)</p>
+</li>
+<li><p>启动对haproxy 和 logstash的支持</p>
+<pre><code>./filebeat modules enable haproxy
+./filebeat modules enable logstash
+</code></pre></li>
+</ul>
+<hr>
+<h3 id="安装Kibana"><a href="#安装Kibana" class="headerlink" title="安装Kibana"></a>安装Kibana</h3><ul>
+<li><p>在<a href="https://www.elastic.co/downloads/past-releases">elastic.co</a>上下载 Kiana OSS 并解压</p>
+</li>
+<li><p>然后到kibana安装目录的config下，编辑kibana.yml配置文件，(可以使用默认)</p>
+</li>
+<li><p><code>./bin/kibana &amp;</code> 启动然后输入exit就后台启动了</p>
+</li>
+<li><p>浏览器 <code>127.0.0.1:5601</code> 打开kibana控制台</p>
+</li>
+</ul>
+<hr>
+<h3 id="验证数据"><a href="#验证数据" class="headerlink" title="验证数据"></a>验证数据</h3><p>GET 请求 elasticsearch服务器/_search 查看是否有数据</p>
+<hr>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="如何切换kibana控制台的数据源"><a href="#如何切换kibana控制台的数据源" class="headerlink" title="如何切换kibana控制台的数据源"></a>如何切换kibana控制台的数据源</h4><blockquote>
+<p>二货的我用自带的测试数据打开了，在 左侧 Management -&gt; Index Patterns -&gt; create index pattern<br>输入index-name 下一步创建，再切回面板就好了</p>
+</blockquote>
+<h4 id="汉化Kibana界面"><a href="#汉化Kibana界面" class="headerlink" title="汉化Kibana界面"></a>汉化Kibana界面</h4><blockquote>
+<p>奶奶的，不光二，英语还不好。算了 汉化吧</p>
+</blockquote>
+<pre><code>wget -c  https://codeload.github.com/anbai-inc/Kibana_Hanization/zip/master -O Kibana_Hanization-master.zip
+下载并解压
+执行汉化命令 `python main.py ~/kibana-6.6.1-linux-x86_64/`
+重启kibana(汉化只能解决部分问题，重要的还是学英语吧)
+</code></pre><hr>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3>
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/Haproxy/">Haproxy</a>
+            
+            <a href="/tags/Logstash/">Logstash</a>
+            
+            <a href="/tags/Filebeat/">Filebeat</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://fengtianhe.cn/分析Haproxy日志/';
+                this.page.identifier = '分析Haproxy日志/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="http://fengtianhe.cn" target="_blank" rel="friend">冯天鹤</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

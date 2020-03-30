@@ -29,7 +29,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>javascript text different - 冯天鹤&#39;s Blog</title>
+<title>nodejs-nodesass安装下载binding.node过慢 - 冯天鹤&#39;s Blog</title>
 
 <meta name="keywords" content="">
 
@@ -165,22 +165,23 @@
                 <p><span class="label">作者</span>
                     <a href="http://fengtianhe.cn"
                        target="_blank">冯天鹤</a>
-                    <span title="最后编辑于&nbsp;2019-11-07">2019-11-07</span>
+                    <span title="最后编辑于&nbsp;2020-01-04">2020-01-04</span>
                 </p>
                 <p>一个搬🧱的劳斯基😁️️</p>
             </div>
-            <h2 class="post-title">Javascript Text Different</h2>
+            <h2 class="post-title">NodeJS-NodeSass安装下载binding.node过慢</h2>
             <div class="post-meta">
-                本文共计847个字 |
+                本文共计394个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <blockquote>
-<p>实现工商信息变更样式</p>
-</blockquote>
-<p>效果图：<br><img src="/images/js_text_diff.png" alt=""></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">diff</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> oldStr = <span class="string">'技术开发、技术推广、技术咨询、技术服务；软件开发；组织文化艺术交流活动（不含演出）；承办展览展示；销售新鲜蔬菜、新鲜水果、文化用品、工艺品、日用品、厨房用具；零售电子产品。依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动。'</span></span><br><span class="line">	<span class="keyword">let</span> newStr = <span class="string">'销售食品。技术开发、技术推广、技术咨询、技术服务；软件开发；组织文化艺术交流活动（不含演出）；承办展览展示；销售文化用品、工艺品、日用品、厨房用具、销售食品以及依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动。'</span></span><br><span class="line">       <span class="comment">// 通过符号分割成数组</span></span><br><span class="line">	<span class="keyword">let</span> oldStrArr = oldStr.split(<span class="regexp">/[、；，。]/</span>)</span><br><span class="line">	<span class="keyword">let</span> diffNewStr = newStr</span><br><span class="line">       <span class="comment">// 将完全相同的部分替换掉</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">of</span> oldStrArr)&#123;</span><br><span class="line">		diffNewStr = diffNewStr.replace(key, <span class="string">''</span>)</span><br><span class="line">	&#125;</span><br><span class="line">       <span class="comment">// 去除新字符串中替换掉的空字符串</span></span><br><span class="line">	<span class="keyword">let</span> diffNewArr = diffNewStr.split(<span class="regexp">/[、；，。]/</span>).filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;<span class="keyword">return</span> !!item&#125;)</span><br><span class="line">	<span class="keyword">let</span> strWithDiff = <span class="string">''</span></span><br><span class="line">       <span class="comment">// 将新的字符串中不同的部分标红</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> addStr <span class="keyword">of</span> diffNewArr)&#123;</span><br><span class="line">		strWithDiff = newStr.replace(addStr, <span class="string">`&lt;span style="color:red"&gt;<span class="subst">$&#123;addStr&#125;</span>&lt;/span&gt;`</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> strWithDiff</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>在项目根目录下用这行命令：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-p</span> <span class="string">"[process.platform, process.arch, process.versions.modules].join('-')"</span></span><br></pre></td></tr></table></figure></p>
+<p>复制输出的结果，去 Release 列表 找到对应的版本，Ctrl+F 粘贴，找到那个文件，下载（必要的时候挂代理，浏览器下载通常都比 node 下载更快更稳定），然后文件存到一个稳定的路径，并复制路径</p>
+<p>设置sass路径<br>Windows:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> <span class="attribute">SASS_BINARY_PATH</span>=D:/nodejs/.nodes/xxxxxxx_binding.node</span><br></pre></td></tr></table></figure></p>
+<p>MacOS:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">SASS_BINARY_PATH</span>=/Users/xxxx/xxxxxxx_binding.node</span><br></pre></td></tr></table></figure></p>
+<p>然后安装node-sass模块</p>
+<p>npm i node-sass -D –verbose<br>之后重新install就可以了</p>
 
         </div>
         <div class="post-tool">
@@ -191,7 +192,13 @@
         
         <div class="post-tags">标签：
             
-            <a href="/tags/Javascript/">Javascript</a>
+            <a href="/tags/JS/">JS</a>
+            
+            <a href="/tags/NodeJS/">NodeJS</a>
+            
+            <a href="/tags/node-modules/">node_modules</a>
+            
+            <a href="/tags/node-sass/">node-sass</a>
             
         </div>
         
@@ -252,8 +259,8 @@
              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
              */
             var disqus_config = function () {
-                this.page.url = 'http://fengtianhe.cn/Javascript-textDifferent/';
-                this.page.identifier = 'Javascript-textDifferent/';
+                this.page.url = 'http://fengtianhe.cn/NodeJS-NodeSass安装下载binding-node过慢/';
+                this.page.identifier = 'NodeJS-NodeSass安装下载binding-node过慢/';
             };
             (function () { // DON'T EDIT BELOW THIS LINE
                 var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');

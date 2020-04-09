@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengtianhe.cn/"/>
-  <updated>2020-03-30T06:58:54.932Z</updated>
+  <updated>2020-04-09T10:25:22.600Z</updated>
   <id>http://fengtianhe.cn/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringCloud源码--SpringCloudConfig工作流程</title>
+    <link href="http://fengtianhe.cn/SpringCloud%E6%BA%90%E7%A0%81-SpringCloudConfig%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/"/>
+    <id>http://fengtianhe.cn/SpringCloud源码-SpringCloudConfig工作流程/</id>
+    <published>2020-04-09T10:25:22.000Z</published>
+    <updated>2020-04-09T10:25:22.600Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>JS工具函数-Object工具.md</title>
@@ -547,34 +561,6 @@
       
       
         &lt;h2 id=&quot;通过慢查日志分析有问题的语句&quot;&gt;&lt;a href=&quot;#通过慢查日志分析有问题的语句&quot; class=&quot;headerlink&quot; title=&quot;通过慢查日志分析有问题的语句&quot;&gt;&lt;/a&gt;通过慢查日志分析有问题的语句&lt;/h2&gt;&lt;h3 id=&quot;1、查询次数多切每次查询占用时间长
-      
-    
-    </summary>
-    
-      <category term="db" scheme="http://fengtianhe.cn/categories/db/"/>
-    
-    
-      <category term="MySQL" scheme="http://fengtianhe.cn/tags/MySQL/"/>
-    
-      <category term="数据库优化" scheme="http://fengtianhe.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL数据库优化【3】慢查日志分析工具</title>
-    <link href="http://fengtianhe.cn/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96%E3%80%903%E3%80%91%E6%85%A2%E6%9F%A5%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/"/>
-    <id>http://fengtianhe.cn/MySQL数据库优化【3】慢查日志分析工具/</id>
-    <published>2018-03-19T07:19:46.000Z</published>
-    <updated>2019-11-07T01:56:39.284Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="mysqldumpslow"><a href="#mysqldumpslow" class="headerlink" title="mysqldumpslow"></a>mysqldumpslow</h2><p>用于查看并格式化慢查日志</p><p>如果系统中没有mysqldumpslow这个命令， 那么到mysql的安装目录下的bin目录下找这个命令，window可以设置环境变量， linux和mac用户可以设置软连接</p><pre><code>Usage: mysqldumpslow [OPTS...] [LOGS...]Pares and summarize the MySQL slow query log. Options are--verbose verbose--debug debug--help write this text to standard output-v           verbose-d           debug-s ORDER     what to sort by (al, at, ar, c, l, r, t), &apos;at&apos; is default                al: average lock time                ar: average rows sent                at: average query time                c: count                l: lock time                r: rows sent                t: query time-r           reverse the sort order (largest last instead of first)-t NUM       just show the top n queries-a           don&apos;t abstract all numbers to N and strings to &apos;S&apos;-n NUM       abstract numbers with at least n digits within names-g PATTERN   grep: only consider stmts that include this string-h HOSTNAME  hostname of db server for *-slow.log filename (can be wildcard),default is &apos;*&apos;, i.e. match all-i NAME      name of server instance (if using mysql.server startup script)-l           don&apos;t subtract lock time from total time</code></pre><p>例：<code>mysqldumpslow -t 3 mysql-slow.log | more</code></p><p>输出：</p><pre><code>Reading mysql slow query log from mysql-slow.logCount: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=1.0 (1), root[root]@localhost  show variables like &apos;S&apos;Count: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=200.0 (200), root[root]@localhost  select  * from actorCount: 1  Time=0.00s (0s)  Lock=0.00s (0s)  Rows=9.0 (9), root[root]@localhost  show databases</code></pre><p>由于演示，我们把慢查超时时间改成了0，所以前三条列出了以上这些，另外慢查日志中记录的是这个服务器所有的慢查语句， 而不是一个数据库的慢查日志</p><p>以上数据显示了数据执行的次数、执行时间、加锁时间、影响行数、执行角色和执行地址</p><h2 id="pt-query-digest"><a href="#pt-query-digest" class="headerlink" title="pt-query-digest"></a>pt-query-digest</h2><p>由于这是第三方工具，安装请自行查询</p><p>建议安装， 毕竟pt-query-digest比mysqldumpslow更强大</p><hr><p>上一章:<a href="/MySQL数据库优化【2】SQL及索引优化/">MySQL数据库优化【2】SQL及索引优化</a><br>下一章:<a href="/MySQL数据库优化【4】分析有问题的sql语句/">MySQL数据库优化【4】分析有问题的sql语句</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;mysqldumpslow&quot;&gt;&lt;a href=&quot;#mysqldumpslow&quot; class=&quot;headerlink&quot; title=&quot;mysqldumpslow&quot;&gt;&lt;/a&gt;mysqldumpslow&lt;/h2&gt;&lt;p&gt;用于查看并格式化慢查日志&lt;/p&gt;
-&lt;p&gt;如果系统中没
       
     
     </summary>

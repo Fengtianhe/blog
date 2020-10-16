@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://fengtianhe.cn/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://fengtianhe.cn">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://fengtianhe.cn">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//fengtianhe-blog.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//fengtianhe-blog.disqus.com">
+
+
+<link rel="prerender" href="http://fengtianhe.cn">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://fengtianhe.cn">
+<meta name="author" content="冯天鹤">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>java工具函数-类工具-对比函数.md - 冯天鹤&#39;s Blog</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="技术博客, 记录成长">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4443191639930926",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="记">记</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/links" title="友链">
+            <i class="fa fa-links"></i>
+            <span>友链</span>
+        </a>
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">爬坑笔记</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个程序员一步一步爬坑的过程</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/Fengtianhe" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/fe" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/wxminiprogram" data-name="小程序">小程序</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/rd" data-name="后端">后端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/db" data-name="数据库">数据库</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/server" data-name="服务器">服务器</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="http://fengtianhe.cn"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="http://fengtianhe.cn"
+                       target="_blank">冯天鹤</a>
+                    <span title="最后编辑于&nbsp;2020-10-16">2020-10-16</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">Java工具函数-类工具-对比函数.Md</h2>
+            <div class="post-meta">
+                本文共计7483个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h3 id="Java对比两个实体类字段的值差异"><a href="#Java对比两个实体类字段的值差异" class="headerlink" title="Java对比两个实体类字段的值差异"></a>Java对比两个实体类字段的值差异</h3><blockquote>
+<p>记录这个方法的原因：<br>需求要求记录一条数据的变更日志，但是由于数据的字段过多，而且我也只想到了通过实体类的对比来判断，所以我在网上查了一下类的比较的方法</p>
+</blockquote>
+<h5 id="网上找到的方法"><a href="#网上找到的方法" class="headerlink" title="网上找到的方法"></a>网上找到的方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 比较两个实体属性值，返回一个map以有差异的属性名为key，value为一个Map分别存oldObject,newObject此属性名的值</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> obj1      进行属性比较的对象1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> obj2      进行属性比较的对象2</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ignoreList 需要忽略的字段</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 属性差异比较结果map</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"rawtypes"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, List&lt;Object&gt;&gt; compareFields(Object obj1, Object obj2, List&lt;String&gt; ignoreList) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Map&lt;String, List&lt;Object&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;String, List&lt;Object&gt;&gt;();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 只有两个对象都是同一类型的才有可比性</span></span><br><span class="line">            <span class="keyword">if</span> (obj1.getClass() == obj2.getClass()) &#123;</span><br><span class="line">                Class claz = obj1.getClass();</span><br><span class="line">                <span class="comment">// 获取object的属性描述</span></span><br><span class="line">                PropertyDescriptor[] pds = Introspector.getBeanInfo(claz,</span><br><span class="line">                        Object.class).getPropertyDescriptors();</span><br><span class="line">                <span class="comment">// 这里就是所有的属性了</span></span><br><span class="line">                <span class="keyword">for</span> (PropertyDescriptor pd : pds) &#123;</span><br><span class="line">                    <span class="comment">// 属性名</span></span><br><span class="line">                    String name = pd.getName();</span><br><span class="line">                    <span class="comment">// 如果当前属性选择忽略比较，跳到下一次循环</span></span><br><span class="line">                    <span class="keyword">if</span> (ignoreList != <span class="keyword">null</span> &amp;&amp; ignoreList.contains(name)) &#123;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// get方法</span></span><br><span class="line">                    Method readMethod = pd.getReadMethod();</span><br><span class="line">                    <span class="comment">// 在obj1上调用get方法等同于获得obj1的属性值</span></span><br><span class="line">                    Object o1 = readMethod.invoke(obj1);</span><br><span class="line">                    <span class="comment">// 在obj2上调用get方法等同于获得obj2的属性值</span></span><br><span class="line">                    Object o2 = readMethod.invoke(obj2);</span><br><span class="line">                    <span class="keyword">if</span> (o1 <span class="keyword">instanceof</span> Timestamp) &#123;</span><br><span class="line">                        o1 = <span class="keyword">new</span> Date(((Timestamp) o1).getTime());</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (o2 <span class="keyword">instanceof</span> Timestamp) &#123;</span><br><span class="line">                        o2 = <span class="keyword">new</span> Date(((Timestamp) o2).getTime());</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (o1 == <span class="keyword">null</span> &amp;&amp; o2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (o1 == <span class="keyword">null</span> &amp;&amp; o2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">                        list.add(o1);</span><br><span class="line">                        list.add(o2);</span><br><span class="line">                        map.put(name, list);</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 比较这两个值是否相等,不等就可以放入map了</span></span><br><span class="line">                    <span class="keyword">if</span> (!o1.equals(o2)) &#123;</span><br><span class="line">                        List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">                        list.add(o1);</span><br><span class="line">                        list.add(o2);</span><br><span class="line">                        map.put(name, list);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> map;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>使用的一下确实可以，但是实体类中有些数据不需要对比，那我就需要利用传参，传一个好长的List，太繁琐了， 所以我想通过注解去识别忽略的属性</p>
+<h5 id="忽略属性的注解"><a href="#忽略属性的注解" class="headerlink" title="忽略属性的注解"></a>忽略属性的注解</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 冯天鹤</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/10/16</span></span><br><span class="line"><span class="comment"> * content: 用于 CommonClassHelper 中 compareFields() 方法忽略字段的比较</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> IgnoreCompare &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加上注解默认不做比较</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">ignore</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在获取ignoreList 的时候只需要在比较的前边 获取一下就可以了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取比较的类中 忽略的字段</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> objectClass</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getCompareIgnoreFields</span><span class="params">(Class objectClass)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取所有的字段</span></span><br><span class="line">    Field[] fields = objectClass.getDeclaredFields();</span><br><span class="line">    List&lt;String&gt; map = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Field f : fields) &#123;</span><br><span class="line">        <span class="comment">// 判断字段注解是否存在</span></span><br><span class="line">        <span class="keyword">boolean</span> annotationPresent2 = f.isAnnotationPresent(IgnoreCompare.class);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (annotationPresent2) &#123;</span><br><span class="line">            IgnoreCompare ignoreCompare = f.getAnnotation(IgnoreCompare.class);</span><br><span class="line">            <span class="comment">// 获取注解值</span></span><br><span class="line">            <span class="keyword">boolean</span> ignore = ignoreCompare.ignore();</span><br><span class="line">            <span class="keyword">if</span> (ignore) &#123;</span><br><span class="line">                map.add(f.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>附一个完整的比较方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较两个实体属性值，返回一个map以有差异的属性名为key，value为一个Map分别存oldObject,newObject此属性名的值</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> obj1      进行属性比较的对象1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> obj2      进行属性比较的对象2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 属性差异比较结果map</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"rawtypes"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, List&lt;Object&gt;&gt; compareFields(Object obj1, Object obj2, Class clazz) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        List&lt;String&gt; ignoreList = getCompareIgnoreFields(clazz);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, List&lt;Object&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;String, List&lt;Object&gt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 只有两个对象都是同一类型的才有可比性</span></span><br><span class="line">        <span class="keyword">if</span> (obj1.getClass() == obj2.getClass()) &#123;</span><br><span class="line">            Class claz = obj1.getClass();</span><br><span class="line">            <span class="comment">// 获取object的属性描述</span></span><br><span class="line">            PropertyDescriptor[] pds = Introspector.getBeanInfo(claz,</span><br><span class="line">                    Object.class).getPropertyDescriptors();</span><br><span class="line">            <span class="comment">// 这里就是所有的属性了</span></span><br><span class="line">            <span class="keyword">for</span> (PropertyDescriptor pd : pds) &#123;</span><br><span class="line">                <span class="comment">// 属性名</span></span><br><span class="line">                String name = pd.getName();</span><br><span class="line">                <span class="comment">// 如果当前属性选择忽略比较，跳到下一次循环</span></span><br><span class="line">                <span class="keyword">if</span> (ignoreList != <span class="keyword">null</span> &amp;&amp; ignoreList.contains(name)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// get方法</span></span><br><span class="line">                Method readMethod = pd.getReadMethod();</span><br><span class="line">                <span class="comment">// 在obj1上调用get方法等同于获得obj1的属性值</span></span><br><span class="line">                Object o1 = readMethod.invoke(obj1);</span><br><span class="line">                <span class="comment">// 在obj2上调用get方法等同于获得obj2的属性值</span></span><br><span class="line">                Object o2 = readMethod.invoke(obj2);</span><br><span class="line">                <span class="keyword">if</span> (o1 <span class="keyword">instanceof</span> Timestamp) &#123;</span><br><span class="line">                    o1 = <span class="keyword">new</span> Date(((Timestamp) o1).getTime());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (o2 <span class="keyword">instanceof</span> Timestamp) &#123;</span><br><span class="line">                    o2 = <span class="keyword">new</span> Date(((Timestamp) o2).getTime());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (o1 == <span class="keyword">null</span> &amp;&amp; o2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (o1 == <span class="keyword">null</span> &amp;&amp; o2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">                    list.add(o1);</span><br><span class="line">                    list.add(o2);</span><br><span class="line">                    map.put(name, list);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 比较这两个值是否相等,不等就可以放入map了</span></span><br><span class="line">                <span class="keyword">if</span> (!o1.equals(o2)) &#123;</span><br><span class="line">                    List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">                    list.add(o1);</span><br><span class="line">                    list.add(o2);</span><br><span class="line">                    map.put(name, list);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在最后，记录变更值的时候需要把字段转为对应解释记录起来，我就用了swaager注解来提取的map</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取实体类字段和 swaager 注解 <span class="doctag">@ApiModelProperty</span> 对应的值</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> clazz</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, String&gt; <span class="title">getFieldSwaggerValue</span><span class="params">(Class clazz)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取所有的字段</span></span><br><span class="line">    Field[] fields = clazz.getDeclaredFields();</span><br><span class="line">    Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Field f : fields) &#123;</span><br><span class="line">        <span class="comment">// 判断字段注解是否存在</span></span><br><span class="line">        <span class="keyword">boolean</span> annotationPresent2 = f.isAnnotationPresent(ApiModelProperty.class);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (annotationPresent2) &#123;</span><br><span class="line">            ApiModelProperty name = f.getAnnotation(ApiModelProperty.class);</span><br><span class="line">            <span class="comment">// 获取注解值</span></span><br><span class="line">            String nameStr = name.value();</span><br><span class="line">            map.put(f.getName(), nameStr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/Java/">Java</a>
+            
+            <a href="/tags/工具函数/">工具函数</a>
+            
+            <a href="/tags/类函数/">类函数</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4443191639930926"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://fengtianhe.cn/Java工具函数-类工具-对比函数/';
+                this.page.identifier = 'Java工具函数-类工具-对比函数/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="http://fengtianhe.cn" target="_blank" rel="friend">冯天鹤</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+</body>
+</html>

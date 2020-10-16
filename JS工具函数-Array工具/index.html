@@ -29,7 +29,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>php工具函数-时间工具-判断时间是否在同一周 - 冯天鹤&#39;s Blog</title>
+<title>js工具函数-array工具.md - 冯天鹤&#39;s Blog</title>
 
 <meta name="keywords" content="">
 
@@ -165,27 +165,19 @@
                 <p><span class="label">作者</span>
                     <a href="http://fengtianhe.cn"
                        target="_blank">冯天鹤</a>
-                    <span title="最后编辑于&nbsp;2019-03-15">2019-03-15</span>
+                    <span title="最后编辑于&nbsp;2020-03-30">2020-03-30</span>
                 </p>
                 <p>一个搬🧱的劳斯基😁️️</p>
             </div>
-            <h2 class="post-title">PHP工具函数-时间工具-判断时间是否在同一周</h2>
+            <h2 class="post-title">JS工具函数-Array工具.md</h2>
             <div class="post-meta">
-                本文共计1007个字 |
+                本文共计1167个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h3 id="PHP判断两个时间是否在同一周"><a href="#PHP判断两个时间是否在同一周" class="headerlink" title="PHP判断两个时间是否在同一周"></a>PHP判断两个时间是否在同一周</h3><blockquote>
-<p>业务场景：<br>  公司需要获取上周的汇总数据，由于放到redis中需要判断数据是否过期或者可用</p>
-</blockquote>
-<p>想法：判断第一个时间的时间戳 是否是第二个时间所在周的时间戳的 区间内</p>
-<blockquote>
-<p>利用strtotime(‘monday’)方法取到下周一 strtotime(‘monday -7 day’) 则取到本周一<br>  利用strtotime(‘sunday’)方法取到本周日</p>
-</blockquote>
-<p>存在问题：由于php代码的每周第一天是从周日开始的 所以如果今天是周一的话 <code>strtotime(&#39;monday -7 day&#39;)</code> 获取的就是上周一<br>Fix: 利用date(‘w’) 判断今天是周一的话，开始时间就加一周</p>
-<p>上完整代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">time_in_same_week</span><span class="params">($preDate, $afterDate)</span> </span>&#123;</span><br><span class="line">    $flag = <span class="keyword">false</span>;<span class="comment">//默认不是同一周</span></span><br><span class="line">    $preTime = strtotime($preDate);</span><br><span class="line">    $afterTime = strtotime($afterDate);</span><br><span class="line"></span><br><span class="line">    $week = date(<span class="string">'w'</span>, $afterTime);</span><br><span class="line">    <span class="comment">//        echo $week . PHP_EOL;</span></span><br><span class="line">    $mintime = strtotime(<span class="string">'monday -7 day'</span>, $afterTime) + ($week == <span class="number">1</span> ? <span class="number">7</span> * <span class="number">3600</span> * <span class="number">24</span> : <span class="number">0</span>);<span class="comment">//一周开始时间; 解决今天的下周一是今天(如果今天是周一就会出现这个情况)</span></span><br><span class="line">    <span class="comment">//        echo '一周开始时间'.date('Y-m-d', $mintime).PHP_EOL;</span></span><br><span class="line">    $maxtime = strtotime(<span class="string">'sunday'</span>, $afterTime);<span class="comment">//一周结束时间</span></span><br><span class="line">    <span class="comment">//        echo '一周结束时间'.date('Y-m-d', $maxtime).PHP_EOL;</span></span><br><span class="line">    <span class="keyword">if</span> ($preTime &gt;= $mintime &amp;&amp; $preTime &lt;= $maxtime) &#123;<span class="comment">//同一周</span></span><br><span class="line">        $flag = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">/***</span></span><br><span class="line"><span class="comment">  * 将原始数组转换成树结构</span></span><br><span class="line"><span class="comment">  * @param &#123;list&#125;  [</span></span><br><span class="line"><span class="comment">                    &#123; id: 1, name: '部门A', parentId: 0 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 2, name: '部门B', parentId: 0 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 3, name: '部门C', parentId: 1 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 4, name: '部门D', parentId: 1 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 5, name: '部门E', parentId: 2 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 6, name: '部门F', parentId: 3 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 7, name: '部门G', parentId: 2 &#125;,</span></span><br><span class="line"><span class="comment">                    &#123; id: 8, name: '部门H', parentId: 4 &#125;</span></span><br><span class="line"><span class="comment">                  ]</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  toTree(list)&#123;</span><br><span class="line">    <span class="keyword">const</span> res = []</span><br><span class="line">    <span class="keyword">const</span> map = list.reduce(<span class="function">(<span class="params">res, v</span>) =&gt;</span> (res[v.id] = v, res), &#123;&#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> list) &#123;</span><br><span class="line">      <span class="keyword">if</span> (item.parentId === <span class="number">0</span>) &#123;</span><br><span class="line">        res.push(item)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (item.parentId <span class="keyword">in</span> map) &#123;</span><br><span class="line">        <span class="keyword">const</span> parent = map[item.parentId]</span><br><span class="line">        parent.children = parent.children || []</span><br><span class="line">        parent.children.push(item)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(res)))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
         </div>
         <div class="post-tool">
             <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
@@ -195,11 +187,11 @@
         
         <div class="post-tags">标签：
             
-            <a href="/tags/工具函数/">工具函数</a>
+            <a href="/tags/JS/">JS</a>
             
-            <a href="/tags/PHP/">PHP</a>
+            <a href="/tags/工具类/">工具类</a>
             
-            <a href="/tags/时间函数/">时间函数</a>
+            <a href="/tags/Array函数/">Array函数</a>
             
         </div>
         
@@ -260,8 +252,8 @@
              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
              */
             var disqus_config = function () {
-                this.page.url = 'http://fengtianhe.cn/PHP工具函数-时间工具-判断时间是否在同一周/';
-                this.page.identifier = 'PHP工具函数-时间工具-判断时间是否在同一周/';
+                this.page.url = 'http://fengtianhe.cn/JS工具函数-Array工具/';
+                this.page.identifier = 'JS工具函数-Array工具/';
             };
             (function () { // DON'T EDIT BELOW THIS LINE
                 var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');

@@ -29,7 +29,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>nodejs-nodesass安装下载binding.node过慢 - 冯天鹤&#39;s Blog</title>
+<title>element-table-mixin - 冯天鹤&#39;s Blog</title>
 
 <meta name="keywords" content="">
 
@@ -165,23 +165,159 @@
                 <p><span class="label">作者</span>
                     <a href="http://fengtianhe.cn"
                        target="_blank">冯天鹤</a>
-                    <span title="最后编辑于&nbsp;2020-01-04">2020-01-04</span>
+                    <span title="最后编辑于&nbsp;2020-11-28">2020-11-28</span>
                 </p>
                 <p>一个搬🧱的劳斯基😁️️</p>
             </div>
-            <h2 class="post-title">NodeJS-NodeSass安装下载binding.node过慢</h2>
+            <h2 class="post-title">Element-Table-Mixin</h2>
             <div class="post-meta">
-                本文共计394个字 |
+                本文共计2956个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>在项目根目录下用这行命令：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-p</span> <span class="string">"[process.platform, process.arch, process.versions.modules].join('-')"</span></span><br></pre></td></tr></table></figure></p>
-<p>复制输出的结果，去 Release 列表 找到对应的版本，Ctrl+F 粘贴，找到那个文件，下载（必要的时候挂代理，浏览器下载通常都比 node 下载更快更稳定），然后文件存到一个稳定的路径，并复制路径</p>
-<p>设置sass路径<br>Windows:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> <span class="attribute">SASS_BINARY_PATH</span>=D:/nodejs/.nodes/xxxxxxx_binding.node</span><br></pre></td></tr></table></figure></p>
-<p>MacOS:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">SASS_BINARY_PATH</span>=/Users/xxxx/xxxxxxx_binding.node</span><br></pre></td></tr></table></figure></p>
-<p>然后安装node-sass模块</p>
-<p>npm i node-sass -D –verbose<br>之后重新install就可以了</p>
+            <h1 id="element-table-mixin"><a href="#element-table-mixin" class="headerlink" title="element-table-mixin"></a>element-table-mixin</h1><p>基于ElementUI 封装的TableMixin</p>
+<p>特性</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked></input> 请求列表数据  </li>
+<li style="list-style: none"><input type="checkbox" checked></input> 带筛选项的列表数据请求  </li>
+<li style="list-style: none"><input type="checkbox" checked></input> 支持自定义返回体取值</li>
+<li style="list-style: none"><input type="checkbox" checked></input> 支持自定义基于Axios封装的请求函数</li>
+</ul>
+<hr>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>yarn add element-table-mixin</code> or <code>npm i element-table-mixin</code></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>main.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="keyword">import</span> &#123;TableMixinConfig&#125; <span class="keyword">from</span> <span class="string">'element-table-mixin'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他配置详见文档</span></span><br><span class="line">TableMixinConfig.REQUEST = axios</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;table-container</span><br><span class="line">        :url=&apos;tableDataUrl&apos;</span><br><span class="line">        style=&quot;flex:1&quot;</span><br><span class="line">        :columns=&quot;tableColumns&quot;</span><br><span class="line">        :table-ops=&quot;tableOps&quot;</span><br><span class="line">        ref=&quot;table&quot;&gt;</span><br><span class="line">          &lt;template slot=&quot;column&quot;&gt;</span><br><span class="line">            &lt;el-table-cloumn&gt;&lt;/el-table-cloumn&gt;</span><br><span class="line">          &lt;/template&gt;</span><br><span class="line">    &lt;/table-container&gt;</span><br><span class="line">    ...</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;TableContainer&#125; from &apos;element-table-mixin&apos;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  ...,</span><br><span class="line">  components: &#123;TableContainer&#125;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      tableDataUrl: AppApplicationService.URL_APP_APPLICATION_LIST,</span><br><span class="line">      filterForm: &#123;</span><br><span class="line">        appId: &apos;&apos;,</span><br><span class="line">        appName: &apos;&apos;,</span><br><span class="line">        creator: &apos;&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      tableColumns: [</span><br><span class="line">        &#123;label: &apos;应用ID&apos;, prop: &apos;appId&apos;&#125;,</span><br><span class="line">        &#123;label: &apos;应用名称&apos;, prop: &apos;appName&apos;&#125;,</span><br><span class="line">        &#123;label: &apos;创建人&apos;, prop: &apos;creatorName&apos;&#125;,</span><br><span class="line">        &#123;label: &apos;创建时间&apos;, prop: &apos;createdAt&apos;, formatter: this.tableFormatDate&#125;</span><br><span class="line">      ],</span><br><span class="line">      tableOps: [</span><br><span class="line">        &#123;command: &apos;EDIT&apos;, name: &apos;编辑&apos;, handle: this.showEditDialog&#125;,</span><br><span class="line">        &#123;command: &apos;DISABLE&apos;, name: &apos;停用&apos;, handle: this.showEditDialog&#125;</span><br><span class="line">      ],</span><br><span class="line">      ...</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  ...,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    showEditDialog(scope)&#123;</span><br><span class="line">      </span><br><span class="line">    &#125;,</span><br><span class="line">    tableFormatDate(row, column, cellValue)&#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="http://blog.fengtianhe.cn/images/element-table-mixin.png" alt="alt 效果图"></p>
+<hr>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><h5 id="props"><a href="#props" class="headerlink" title="props"></a>props</h5><table>
+<thead>
+<tr>
+<th>prop</th>
+<th>require</th>
+<th>描述</th>
+<th>type</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>columns</td>
+<td>true</td>
+<td>表格的列</td>
+<td>Array<ColumnObject></td>
+<td>ColumnObject = {label: ‘’, prop: ‘’, formatter: (row, column, cellValue) =&gt; {}}</td>
+</tr>
+<tr>
+<td>tableOps</td>
+<td>false</td>
+<td>行数据操作项</td>
+<td>Array<OpObject></td>
+<td>OpObject = {command: ‘’, name: ‘’, handle: (scope) =&gt; {}}</td>
+</tr>
+<tr>
+<td>url</td>
+<td>true</td>
+<td>列表请求地址</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<h5 id="event"><a href="#event" class="headerlink" title="event"></a>event</h5><table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resetFilter()</td>
+<td>重置筛选项并查询</td>
+</tr>
+<tr>
+<td>setFilter()</td>
+<td>设置筛选项并查询</td>
+</tr>
+</tbody>
+</table>
+<h5 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h5><table>
+<thead>
+<tr>
+<th>name</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column</td>
+<td>自定义列</td>
+</tr>
+</tbody>
+</table>
+<h5 id="TableMixinConfig"><a href="#TableMixinConfig" class="headerlink" title="TableMixinConfig"></a>TableMixinConfig</h5><table>
+<thead>
+<tr>
+<th>name</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQUEST</td>
+<td>默认请求使用 axios,</td>
+</tr>
+<tr>
+<td>PAGE_SIZE_DEFAULT</td>
+<td>每页默认数量 15,</td>
+</tr>
+<tr>
+<td>PAGE_NUM_DEFAULT</td>
+<td>默认页码 1,</td>
+</tr>
+<tr>
+<td>REQUEST_PAGENUM_FIELD</td>
+<td>请求的页码字段 pageNum,</td>
+</tr>
+<tr>
+<td>REQUEST_PAGESIZE_FIELD</td>
+<td>请求的每页条数字段 pageSize,</td>
+</tr>
+<tr>
+<td>RESPONSE_LIST_FIELD</td>
+<td>列表数据对应字段 data.lists,</td>
+</tr>
+<tr>
+<td>RESPONSE_PAGESIZE_FIELD</td>
+<td>每页数量对应的字段 data.size,</td>
+</tr>
+<tr>
+<td>RESPONSE_PAGENUM_FIELD</td>
+<td>页码对应的字段 data.pageNum,</td>
+</tr>
+<tr>
+<td>RESPONSE_TOTAL_FIELD</td>
+<td>总条数对应的字段 data.total,</td>
+</tr>
+</tbody>
+</table>
+<h5 id="默认配置的返回值"><a href="#默认配置的返回值" class="headerlink" title="默认配置的返回值"></a>默认配置的返回值</h5><p>如果后端的返回值和默认不一致，请调整配置项<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...,</span><br><span class="line">  "data": &#123;</span><br><span class="line">    "lists": [],</span><br><span class="line">    "size": 15,</span><br><span class="line">    "pageNum": 1,</span><br><span class="line">    "total": 50</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>交流联系方式：<br>QQ：545704061</p>
+<p>微信：fth545704061</p>
 
         </div>
         <div class="post-tool">
@@ -192,13 +328,9 @@
         
         <div class="post-tags">标签：
             
-            <a href="/tags/JS/">JS</a>
+            <a href="/tags/Javascript/">Javascript</a>
             
-            <a href="/tags/NodeJS/">NodeJS</a>
-            
-            <a href="/tags/node-modules/">node_modules</a>
-            
-            <a href="/tags/node-sass/">node-sass</a>
+            <a href="/tags/Vue/">Vue</a>
             
         </div>
         
@@ -259,8 +391,8 @@
              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
              */
             var disqus_config = function () {
-                this.page.url = 'http://fengtianhe.cn/NodeJS-NodeSass安装下载binding-node过慢/';
-                this.page.identifier = 'NodeJS-NodeSass安装下载binding-node过慢/';
+                this.page.url = 'http://fengtianhe.cn/element-table-mixin/';
+                this.page.identifier = 'element-table-mixin/';
             };
             (function () { // DON'T EDIT BELOW THIS LINE
                 var d = document, disqus_shortname = 'fengtianhe-blog', s = d.createElement('script');
